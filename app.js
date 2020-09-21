@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const colors = [
     'orange',
+    'pink',
     'red',
+    'teal',
     'purple',
     'green',
     'blue'
@@ -19,9 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // os Tetrominos
   const lTetromino = [
     [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, 2],
-    [GRID_WIDTH,  GRID_WIDTH +1,  GRID_WIDTH +2,  GRID_WIDTH * 2 + 2],
+    [GRID_WIDTH,  GRID_WIDTH + 1,  GRID_WIDTH + 2,  GRID_WIDTH * 2 + 2],
     [1,  GRID_WIDTH + 1,  GRID_WIDTH * 2 + 1,  GRID_WIDTH * 2],
-    [ GRID_WIDTH ,  GRID_WIDTH * 2,  GRID_WIDTH * 2 + 1,  GRID_WIDTH * 2 + 2]
+    [GRID_WIDTH,  GRID_WIDTH * 2,  GRID_WIDTH * 2 + 1,  GRID_WIDTH * 2 + 2]
+  ];
+
+  const lTetrominoInverted = [
+    [0, 1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
+    [GRID_WIDTH,  GRID_WIDTH + 1,  GRID_WIDTH + 2, 2],
+    [1,  GRID_WIDTH + 1,  GRID_WIDTH * 2 + 1,  GRID_WIDTH * 2 + 2],
+    [GRID_WIDTH * 2,  GRID_WIDTH,  GRID_WIDTH + 1,  GRID_WIDTH + 2],
   ];
 
   const zTetromino = [
@@ -30,6 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     [0, GRID_WIDTH , GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
     [GRID_WIDTH + 1,  GRID_WIDTH + 2, GRID_WIDTH * 2, GRID_WIDTH * 2 + 1]
   ];
+
+  const zTetrominoInverted = [
+    [2, GRID_WIDTH + 2, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
+    [GRID_WIDTH,  GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 2 + 2],
+    [2, GRID_WIDTH + 2, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1],
+    [GRID_WIDTH,  GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, GRID_WIDTH * 2 + 2] 
+   ];
 
   const tTetromino = [
     [1, GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2],
@@ -52,7 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
     [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH + 3]
   ];
 
-  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+  const theTetrominoes = [lTetromino, 
+  	lTetrominoInverted, 
+  	zTetromino,
+  	zTetrominoInverted, 
+  	tTetromino, 
+  	oTetromino, 
+  	iTetromino];
 
   let currentPosition = 4;
   let currentRotation = 0;
@@ -189,7 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
   //the Tetrominos  GRID_WIDTH ut rotations
   const upNextTetrominoes = [
     [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, 2], //lTetromino
+    [0, 1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1], //lTetrominoInverted
     [0, DISPLAY_WIDTH , DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1], //zTetromino
+    [2, DISPLAY_WIDTH + 2, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1], //zTetrominoInverted
     [1, DISPLAY_WIDTH , DISPLAY_WIDTH + 1, DISPLAY_WIDTH + 2], //tTetromino
     [0, 1, DISPLAY_WIDTH , DISPLAY_WIDTH + 1], //oTetromino
     [1, DISPLAY_WIDTH +1, DISPLAY_WIDTH * 2 + 1, DISPLAY_WIDTH * 3 + 1] //iTetromino
