@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let score = 0;
 
   const colors = [
-    'orange',
-    'pink',
-    'red',
-    'teal',
-    'purple',
-    'green',
-    'blue'
+    'url(images/green-block.png)',
+    'url(images/blue-block.png)',
+    'url(images/orange-block.png)',
+    'url(images/purple-block.png)',
+    'url(images/yellow-block.png)',
+    'url(images/sky-block.png)',
+    'url(images/red-block.png)'
   ];
 
   // os Tetrominos
@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('tetromino');
-      squares[currentPosition + index].style.backgroundColor = colors[random];
+      squares[currentPosition + index].style.backgroundImage = colors[random];
+      squares[currentPosition + index].style.backgroundSize = 'cover';
     })
   }
 
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function undraw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.remove('tetromino');
-      squares[currentPosition + index].style.backgroundColor = '';
+      squares[currentPosition + index].style.backgroundImage = 'none';
 
     })
   }
@@ -223,12 +224,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayShape() {
     //remove any trace of a tetromino form the entire grid
     displaySquares.forEach(square => {
-      square.classList.remove('tetromino')
-      square.style.backgroundColor = ''
+      square.classList.remove('tetromino');
+      square.style.backgroundImage = 'none';
     })
     upNextTetrominoes[nextRandom].forEach( index => {
-      displaySquares[displayIndex + index].classList.add('tetromino')
-      displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
+      displaySquares[displayIndex + index].classList.add('tetromino');
+      displaySquares[displayIndex + index].style.backgroundImage = colors[nextRandom];
+      displaySquares[displayIndex + index].style.backgroundSize = 'cover';
     })
   }
 
@@ -251,16 +253,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
 
       if(row.every(index => squares[index].classList.contains('taken'))) {
-        score +=10
+        score += 10;
         scoreDisplay.innerHTML = score
         row.forEach(index => {
-          squares[index].classList.remove('taken')
-          squares[index].classList.remove('tetromino')
-          squares[index].style.backgroundColor = ''
+          squares[index].classList.remove('taken');
+          squares[index].classList.remove('tetromino');
+          squares[index].style.backgroundImage = 'none';
         })
-        const squaresRemoved = squares.splice(i,  GRID_WIDTH )
-        squares = squaresRemoved.concat(squares)
-        squares.forEach(cell => grid.appendChild(cell))
+        const squaresRemoved = squares.splice(i,  GRID_WIDTH );
+        squares = squaresRemoved.concat(squares);
+        squares.forEach(cell => grid.appendChild(cell));
       }
     }
   }
