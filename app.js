@@ -2,11 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid');
   let squares = Array.from(document.querySelectorAll('.grid div'));
   const scoreDisplay = document.querySelector('#score');
+
   const startBtn = document.querySelector('#start-button');
+  const ctrlBtn = document.querySelector('#controls-button');
+  const pauseBtn = document.querySelector('#pause-button');
+  const backBtn = document.querySelector('#back-button');
+  const initialBackBtn = document.querySelector('#initial-back-button');
+  const difficultBtn = document.querySelector('#difficult-button');
+  const easyBtn = document.querySelector('#easy-button');
+  const mediumBtn = document.querySelector('#medium-button');
+  const hardBtn = document.querySelector('#hard-button');
+  const extremeBtn = document.querySelector('#extreme-button');
+  const gameoverBtn = document.querySelector('#gameover-button');
+  const pointsSpan = document.querySelector('#points');
+  const speedSpan = document.querySelector('#speed');
+  const finalScoreSpan = document.querySelector('#final-score');
+
+  const initialWindow = document.querySelector('#initial-menu');
+  const ctrlWindow = document.querySelector('#controls-menu');
+  const difficultWindow = document.querySelector('#difficult-menu'); 
+  const pausedWindow = document.querySelector('#paused');
+  const gameoverWindow = document.querySelector('#gameover-menu');
+
   const GRID_WIDTH  = 10;
   let nextRandom = 0;
   let timerId;
   let score = 0;
+  let speedFactor = 750;
+  let points = 10;
+
 
   const colors = [
     'url(images/green-block.png)',
@@ -97,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
     current.forEach(index => {
       squares[currentPosition + index].classList.remove('tetromino');
       squares[currentPosition + index].style.backgroundImage = 'none';
-
     })
   }
 
@@ -234,17 +257,103 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  //add functionality to the button
-  startBtn.addEventListener('click', () => {
-    if (timerId) {
-      clearInterval(timerId)
-      timerId = null
-    } else {
-      draw()
-      timerId = setInterval(moveDown, 1000)
-      nextRandom = Math.floor(Math.random()*theTetrominoes.length)
-      displayShape()
+  function clearGrid() {
+    for (let index = 0; index <= 199; index++) {
+      squares[index].classList.remove('taken');
+      squares[index].classList.remove('tetromino');
+      squares[index].style.backgroundImage = 'none';
     }
+  }
+
+  startBtn.addEventListener('click', () => {
+    initialWindow.style.display = 'none';
+    draw();
+    timerId = setInterval(moveDown, speedFactor);
+    nextRandom = Math.floor(Math.random()*theTetrominoes.length);
+    displayShape();
+  })
+
+  ctrlBtn.addEventListener('click', () => {
+    initialWindow.style.display = 'none';
+    ctrlWindow.style.display = 'flex';
+  })
+
+  initialBackBtn.addEventListener('click', () => {
+    ctrlWindow.style.display = 'none';
+    initialWindow.style.display = 'flex';
+  })
+
+  difficultBtn.addEventListener('click', () => {
+    initialWindow.style.display = 'none';
+    difficultWindow.style.display = 'flex';
+  })
+
+  easyBtn.addEventListener('mouseover', () => {
+    pointsSpan.innerHTML = 5;
+    speedSpan.innerHTML = 'lenta'; 
+  })
+
+  easyBtn.addEventListener('click', () => {
+    points = 5;
+    speedFactor = 1000;
+    difficultWindow.style.display = 'none';
+    initialWindow.style.display = 'flex';
+  })
+
+  mediumBtn.addEventListener('mouseover', () => {
+    pointsSpan.innerHTML = 10;
+    speedSpan.innerHTML = 'moderada';   
+  })
+
+  mediumBtn.addEventListener('click', () => {
+    points = 10;
+    speedFactor = 750;
+    difficultWindow.style.display = 'none';
+    initialWindow.style.display = 'flex';   
+  })
+
+  hardBtn.addEventListener('mouseover', () => {
+    pointsSpan.innerHTML = 20;
+    speedSpan.innerHTML = 'rápida';   
+  })
+
+  hardBtn.addEventListener('click', () => {
+    points = 20;
+    speedFactor = 500;
+    difficultWindow.style.display = 'none';
+    initialWindow.style.display = 'flex';   
+  })
+
+  extremeBtn.addEventListener('mouseover', () => {
+    pointsSpan.innerHTML = 30;
+    speedSpan.innerHTML = 'muito rápida';   
+  })
+
+  extremeBtn.addEventListener('click', () => {
+    points = 30;
+    speedFactor = 250;
+    difficultWindow.style.display = 'none';
+    initialWindow.style.display = 'flex';   
+  })
+
+  gameoverBtn.addEventListener('click', () => {
+    gameoverWindow.style.display = 'none';
+    initialWindow.style.display = 'flex';   
+  })
+
+  //add functionality to the button
+  pauseBtn.addEventListener('click', () => {
+    clearInterval(timerId) 
+    timerId = null
+    pausedWindow.style.display = 'flex';
+  })
+
+  backBtn.addEventListener('click', () => {
+    pausedWindow.style.display = 'none';
+    draw();
+    timerId = setInterval(moveDown, speedFactor);
+    nextRandom = Math.floor(Math.random()*theTetrominoes.length);
+    displayShape();
   })
 
   //add score
@@ -253,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9]
 
       if(row.every(index => squares[index].classList.contains('taken'))) {
-        score += 10;
+        score += points;
         scoreDisplay.innerHTML = score
         row.forEach(index => {
           squares[index].classList.remove('taken');
@@ -270,8 +379,13 @@ document.addEventListener('DOMContentLoaded', () => {
   //game over
   function gameOver() {
     if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-      scoreDisplay.innerHTML = 'fim de jogo'
+      scoreDisplay.innerHTML = 'fim de jogo';
       clearInterval(timerId)
+      finalScoreSpan.innerHTML = score;
+      gameoverWindow.style.display = 'flex';
+      clearGrid();
+      scoreDisplay.innerHTML = 0;
+      score = 0;
     }
   }
 
