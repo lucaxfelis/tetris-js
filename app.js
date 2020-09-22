@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const initialWindow = document.querySelector('#initial-menu');
   const ctrlWindow = document.querySelector('#controls-menu');
   const difficultWindow = document.querySelector('#difficult-menu'); 
+  const difficultDisplay = document.querySelector('#difficult-menu p');
   const pausedWindow = document.querySelector('#paused');
   const gameoverWindow = document.querySelector('#gameover-menu');
 
@@ -290,7 +291,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   easyBtn.addEventListener('mouseover', () => {
     pointsSpan.innerHTML = 5;
-    speedSpan.innerHTML = 'lenta'; 
+    speedSpan.innerHTML = 'lenta';
+    difficultDisplay.style.color = '#FFF';
+    pointsSpan.style.color = '#ebd500';
+    speedSpan.style.color = '#ebd500'; 
+  })
+
+  easyBtn.addEventListener('mouseout', () => {
+    difficultDisplay.style.color = 'transparent';
+    pointsSpan.style.color = 'transparent';
+    speedSpan.style.color = 'transparent';
   })
 
   easyBtn.addEventListener('click', () => {
@@ -302,7 +312,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mediumBtn.addEventListener('mouseover', () => {
     pointsSpan.innerHTML = 10;
-    speedSpan.innerHTML = 'moderada';   
+    speedSpan.innerHTML = 'moderada';
+    difficultDisplay.style.color = '#FFF';
+    pointsSpan.style.color = '#ebd500';
+    speedSpan.style.color = '#ebd500';
+  })
+
+  mediumBtn.addEventListener('mouseout', () => {
+    difficultDisplay.style.color = 'transparent';
+    pointsSpan.style.color = 'transparent';
+    speedSpan.style.color = 'transparent';
   })
 
   mediumBtn.addEventListener('click', () => {
@@ -314,7 +333,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   hardBtn.addEventListener('mouseover', () => {
     pointsSpan.innerHTML = 20;
-    speedSpan.innerHTML = 'rápida';   
+    speedSpan.innerHTML = 'rápida';  
+    difficultDisplay.style.color = '#FFF';
+    pointsSpan.style.color = '#ebd500';
+    speedSpan.style.color = '#ebd500'; 
+  })
+
+  hardBtn.addEventListener('mouseout', () => {
+    difficultDisplay.style.color = 'transparent';
+    pointsSpan.style.color = 'transparent';
+    speedSpan.style.color = 'transparent';
   })
 
   hardBtn.addEventListener('click', () => {
@@ -326,7 +354,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   extremeBtn.addEventListener('mouseover', () => {
     pointsSpan.innerHTML = 30;
-    speedSpan.innerHTML = 'muito rápida';   
+    speedSpan.innerHTML = 'muito rápida';
+    difficultDisplay.style.color = '#FFF';
+    pointsSpan.style.color = '#ebd500';
+    speedSpan.style.color = '#ebd500';   
+  })
+
+  extremeBtn.addEventListener('mouseout', () => {
+    difficultDisplay.style.color = 'transparent';
+    pointsSpan.style.color = 'transparent';
+    speedSpan.style.color = 'transparent';
   })
 
   extremeBtn.addEventListener('click', () => {

@@ -104,6 +104,7 @@ header {
 
 #difficult-menu p {
   width: 500px;
+  color: transparent;
   text-align: center;
   font-family: 'Rubik', sans-serif;
   line-height: 1.6;
