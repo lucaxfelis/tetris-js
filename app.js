@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const pointsSpan = document.querySelector('#points');
   const speedSpan = document.querySelector('#speed');
   const finalScoreSpan = document.querySelector('#final-score');
+  const moveRightButtonAtMobile = document.querySelector('#moveRightMobile');
+  const moveLeftButtonAtMobile = document.querySelector('#moveLeftMobile');
+  const moveRotateButtonAtMobile = document.querySelector('#moveRotateMobile');
 
   const initialWindow = document.querySelector('#initial-menu');
   const ctrlWindow = document.querySelector('#controls-menu');
@@ -392,6 +395,18 @@ document.addEventListener('DOMContentLoaded', () => {
     nextRandom = Math.floor(Math.random()*theTetrominoes.length);
     displayShape();
   })
+
+  moveRightButtonAtMobile.addEventListener('click', () => {
+    moveRight();
+  });
+
+  moveLeftButtonAtMobile.addEventListener('click', () => {
+    moveLeft();
+  });
+
+  moveRotateButtonAtMobile.addEventListener('click', () => {
+    rotate();
+  });
 
   //add score
   function addScore() {

@@ -4,6 +4,43 @@ body {
   background-color: #000;
 }
 
+#mobile-controls{
+  display: none;
+}
+
+@media (max-width: 400px){
+  html{
+    overflow: hidden;
+    transform: scale(0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+
+  #mobile-controls{
+    display: block;
+    position: fixed;
+    z-index: 10;
+    top: 110%;
+    left: -20%;
+    width: 200%;
+    height: 50px;
+  }
+
+  .mobileButton{
+    border: 3px solid white;
+    color: white;
+    display: inline-block;
+    padding: 15px 0;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 10px;
+    width: 150px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+  }
+}
+
 header {
   text-align: center;
   font-family: 'Press Start 2P', cursive;
@@ -163,7 +200,6 @@ header {
   width: 500px;
   text-align: center;
   font-family: 'Rubik', sans-serif;
-  font
   font-weight: bold;
   margin-top: -50px;
 }
