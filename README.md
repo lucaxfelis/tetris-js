@@ -15,3 +15,17 @@ Jogo de Tetris básico desenvolvido com JavaScript Vanilla. Pode ser acessado [a
 * Gabriel Vanderlei Oliveira
 * Lucas Felix de Aguiar
 * Samuel Ferreira de Farias Barbosa
+
+## Fases do projeto
+
+Jogo em sua primeira versão
+
+![Jogo em sua primeira versão](assets/primeira_versao.png)
+
+Menu inicial em sua versão atual
+
+![Menu inicial em sua versão atual](assets/menu_inicial.png)
+
+Jogo em sua versão atual
+
+![Jogo em sua versão atual](assets/versao_final.png)
