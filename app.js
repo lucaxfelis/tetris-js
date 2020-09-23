@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const displayIndex = 0
 
 
-  //the Tetrominos  GRID_WIDTH ut rotations
+  //the Tetrominos
   const upNextTetrominoes = [
     [1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1, 2], //lTetromino
     [0, 1, DISPLAY_WIDTH + 1, DISPLAY_WIDTH * 2 + 1], //lTetrominoInverted
