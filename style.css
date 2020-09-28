@@ -4,6 +4,11 @@ body {
   background-color: #000;
 }
 
+header {
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
 #mobile-controls{
   display: none;
 }
@@ -41,11 +46,6 @@ body {
   }
 }
 
-header {
-  text-align: center;
-  font-family: 'Press Start 2P', cursive;
-}
-
 #initial-menu {
   display: flex;
   justify-content: center;
@@ -68,7 +68,8 @@ header {
   justify-content: space-around;
   flex-direction: column;
   background-color: #000;
-  border: 5px solid #FFF;
+  border: 25px solid #FFF;
+  border-image: url('images/grey-border.png') 146 round;
 }
 
 #initial-menu h2 {
@@ -103,7 +104,8 @@ header {
   justify-content: space-around;
   flex-direction: column;
   background-color: #000;
-  border: 5px solid #FFF;
+  border: 25px solid #FFF;
+  border-image: url('images/grey-border.png') 146 round;
 }
 
 #controls-menu p {
@@ -157,7 +159,8 @@ header {
   justify-content: space-around;
   flex-direction: column;
   background-color: #000;
-  border: 5px solid #FFF;
+  border: 25px solid #FFF;
+  border-image: url('images/grey-border.png') 146 round;
 }
 
 #difficult-options {
@@ -189,7 +192,8 @@ header {
   justify-content: space-around;
   flex-direction: column;
   background-color: #000;
-  border: 5px solid #FFF;
+  border: 25px solid #FFF;
+  border-image: url('images/grey-border.png') 146 round;
 }
 
 #gameover-menu h2 {
@@ -251,7 +255,8 @@ header {
 }
 
 #start-button:hover, #controls-button:hover, 
-#difficult-button:hover, #initial-back-button:hover {
+#difficult-button:hover, #initial-back-button:hover,
+#gameover-button:hover {
   background-color: #59b0bd;
   color: #000;
 }
@@ -284,7 +289,8 @@ header {
   justify-content: space-around;
   flex-direction: column;
   background-color: #000;
-  border: 5px solid #FFF;
+  border: 25px solid #FFF;
+  border-image: url('images/grey-border.png') 146 round;
 }
 
 #back-button {
@@ -317,7 +323,8 @@ h2 .no-space {
 }
 
 .game {
-  border: 5px solid white;
+  border: 20px solid #FFF;
+  border-image: url('images/grey-border.png') 146 round;
   margin-right: 50px;
 }
 
@@ -326,16 +333,16 @@ h2 .no-space {
 }
 
 .grid {
-    width: 250px;
-    height: 500px;
+    width: 200px;
+    height: 400px;
     background-color: #000;
     display: flex;
     flex-wrap: wrap;
 }
 
 .grid div {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
 }
 
 .tetromino {
@@ -361,7 +368,7 @@ h2 .no-space {
 
 #pause-button {
   position: relative;
-  width: 200px;
+  width: 100px;
   height: 50px;
   text-align: center;
   color: #FFF;
@@ -387,19 +394,20 @@ h2 .no-space {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  width: 250px;
-  height: 25rem;
+  width: 200px;
+  height: 400px;
   background-color: #000;
-  border: 5px solid #FFF;
+  border: 20px solid #FFF;
+  border-image: url('images/grey-border.png') 146 round;
   color: #FFF;
 }
 
 #score {
-  font-family: 'Rubik', sans-serif;
-  font-size: 30px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
 }
 
 .score-class {
-  font-family: 'Rubik', sans-serif;
-  font-size: 30px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
 }
