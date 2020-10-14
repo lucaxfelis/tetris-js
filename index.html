@@ -21,26 +21,26 @@
 				<span class="no-space" style="color: #369a31;">I</span>
 				<span class="no-space" style="color: #894086;">S</span>
 			</h2>
-			<button id="start-button" data-cy="start" class="uppercase">Iniciar Jogo</button>
-			<button id="controls-button" data-cy="controls" class="uppercase">Controles</button>
-			<button id="difficult-button" data-cy="difficult" class="uppercase">Dificuldade</button>
+			<button id="start-button" data-cy="btnStart" class="uppercase">Iniciar Jogo</button>
+			<button id="controls-button" data-cy="btnControls" class="uppercase">Controles</button>
+			<button id="difficult-button" data-cy="btnDifficult" class="uppercase">Dificuldade</button>
 		</div>
 	</div>
 	<div id="controls-menu">
 		<div>
 			<h2>CONTROLES</h2>
 			<p>Use a tecla <span>CIMA</span> para rodar o tetromino, e as teclas <span>ESQUERDA</span> e <span>DIREITA</span> para movê-lo pelo quadro. Pressione a tecla <span>BAIXO</span> e o tetromino descerá mais rápido.</p>
-			<button id="initial-back-button" class="uppercase">menu inicial</button>
+			<button id="initial-back-button" data-cy="btnBackMenu" class="uppercase">menu inicial</button>
 		</div>
 	</div>
 	<div id="difficult-menu">
 		<div id="difficult-submenu"> 
 			<h2>DIFICULDADE</h2>
 			<div id="difficult-options">
-				<button id="easy-button">Fácil</button>
-				<button id="medium-button">Médio</button>
-				<button id="hard-button">Difícil</button>
-				<button id="extreme-button">Extremo</button>
+				<button id="easy-button" data-cy="btnEasy" >Fácil</button>
+				<button id="medium-button" data-cy="btnMedium" >Médio</button>
+				<button id="hard-button" data-cy="btnHard" >Difícil</button>
+				<button id="extreme-button" data-cy="btnExtreme" >Extremo</button>
 			</div>
 			<p id="difficult-desc">Cada linha vale 
 				<span id="points">5</span>
@@ -52,14 +52,14 @@
 	<div id="paused">
 		<div class="uppercase">
 			<p>Jogo Pausado</p>
-			<button id="back-button" class="uppercase">Voltar</button>
+			<button id="back-button" data-cy="btnBack" class="uppercase">Voltar</button>
 		</div>
 	</div>
 	<div id="gameover-menu">
 		<div>
 			<h2>GAME OVER!</h2>
 			<p class="uppercase">Sua pontuação: <span id="final-score">144</span></p>
-			<button id="gameover-button" class="uppercase">Voltar ao menu inicial</button>
+			<button id="gameover-button" data-cy="btnBackMenuInitial"class="uppercase">Voltar ao menu inicial</button>
 		</div>
 	</div>
 	<header>
@@ -310,7 +310,7 @@
 						<div></div>
 					</div>
 				</div>
-				<button id='pause-button' class="uppercase" href="#">Pausar</button>
+				<button id='pause-button' data-cy="btnPause" class="uppercase" href="#">Pausar</button>
 			</div>
 		</section>
 	</main>
